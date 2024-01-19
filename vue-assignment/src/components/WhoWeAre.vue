@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     fetchArticles() {
-      axios.get('https://www.jsonkeeper.com/b/I02R')
+      axios.get('https://run.mocky.io/v3/65083fbd-e807-46a6-ba61-2ed38f2e0515')
         .then(response => {
           console.log(response.data);
           this.articlesData = response.data;

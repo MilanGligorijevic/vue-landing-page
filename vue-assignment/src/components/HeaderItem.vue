@@ -44,12 +44,16 @@ export default {
   },
   methods: {
       toggleSearchBar() {
-      this.showSearchBar = !this.showSearchBar;
-      this.showExpandedMenu = false;
+        setTimeout(() => {
+          this.showSearchBar = !this.showSearchBar;
+          this.showExpandedMenu = false;
+        }, 80);
       },
       toggleExpandedMenu() {
-      this.showExpandedMenu = !this.showExpandedMenu;
-      this.showSearchBar = false;
+        setTimeout(() => {
+          this.showExpandedMenu = !this.showExpandedMenu;
+          this.showSearchBar = false;
+        }, 80);
       },
   }
 }
@@ -137,18 +141,45 @@ export default {
       display: flex;
       justify-content: center;
     }
+
+    @keyframes stretchSearch {
+      0% {
+        width: 1%;
+        border-radius: 1rem;
+      }
+      50% {
+        border-radius: .9rem;
+      }
+      100% {
+        width: 100%;
+      }
+    }
+
     .search-bar-input{
-      width: 100%;
       height: 2.3rem;
       margin: .8rem;
       padding-left: .3rem;
       border: .1rem solid #808080;
+      border-radius: .5rem;
+      animation: stretchSearch .8s forwards;
     }
+    
     .expanded-menu{
       margin-top: .8rem;
     }
 
+    @keyframes expandMenu {
+      0% {
+        opacity: 0;
+        transform: translateY(-100%);
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
     .expanded-menu-div{
+      opacity: 0;
       font-size: 1.4rem;
       color: white;
       padding: .15rem .5rem;
@@ -156,17 +187,25 @@ export default {
     .home{
       background-color: #BBD547;
       border-bottom: .1rem solid white;
+      animation: expandMenu .2s forwards;
+      animation-delay: .1s;
     }
     .about-us{
       background-color: #81B36E;
       border-bottom: .1rem solid white;
+      animation: expandMenu .2s forwards;
+      animation-delay: .3s;
     }
     .our-work{
       background-color: #429099;
       border-bottom: .1rem solid white;
+      animation: expandMenu .2s forwards;
+      animation-delay: .5s;
     }
     .contact{
       background-color: #1375B8;
+      animation: expandMenu .2s forwards;
+      animation-delay: .7s;
     }
 
     @media screen and (min-width: 480px){

@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     fetchItems() {
-      axios.get('https://www.jsonkeeper.com/b/H6I7')
+      axios.get('https://run.mocky.io/v3/0befcbee-b3b3-4572-9b59-83eb50c89620')
         .then(response => {
           console.log(response.data);
           this.itemsData = response.data;
